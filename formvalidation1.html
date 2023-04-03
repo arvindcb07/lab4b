@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function validate() {
+                var a = document.form.name.value;
+                if (a == "") {
+                    alert("Name is empty");
+                    document.form.name.focus();
+                    return false;
+                }
+                if (!isNaN(a)) {
+                    alert("Only entered character");
+                    document.form.name.select();
+                    return false;
+                }
+                if (/^[0-9a-zA-Z]+$/.test(a)) {
+                alert('Name can only contain alphanumeric characters');
+                return false;
+                }
+                else if (/[^a-zA-Z0-9\-\/]/.test(address)) {
+                alert('Name can only contain characters');
+                return false;
+                }
+    
+                var d = document.form.mail.value;
+                if (d == "") {
+                    alert("please, Enter your mail id!!!");
+                    document.form.mail.focus();
+                    return false;
+                }
+                var atposition = d.indexOf("@");
+                var dotposition = d.lastIndexOf(".");
+                if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= d.length) {
+                    alert("please enter valid mail address!!!!");
+                    return false;
+                }
+                var p = document.form.pass.value;
+                if (p == "") {
+                    alert("please, Enter your password!!!");
+                    document.form.pass.focus();
+                    return false;
+                }
+                
+                var cp = document.form.cpass.value;
+                if (cp == "") {
+                    alert("please, Enter your password!!!");
+                    document.form.cpass.focus();
+                    return false;
+                }
+                if (p != cp) {
+                    alert("Password not matched please enter correct one!!!!");
+                    document.form.cpass.focus();
+                    return false;
+                }
+    
+                var m = document.form.mno.value;
+                if (m == "") {
+                    alert("please, Enter your moblie number!!!");
+                    document.form.mno.focus();
+                    return false;
+                }
+                else if (m.length < 10 || m.length > 10) {
+                    alert("please enter only 10 digits!");
+                    document.form.mno.focus();
+                    return false;
+                }
+    
+                var rb = document.form.gender;
+                var status = 0;
+                for (var i = 0; i < rb.length; i++) {
+                    if (rb[i].checked == true) {
+                        status = 1;
+                    }
+                }
+                if (status == 0) {
+                    alert("select gender");
+                    return false;
+                }
+    
+                var interest = document.form.course;
+                if (interest.selectedIndex == 0) {
+                    alert("select your course");
+                    document.form.course.focus();
+                    return false;
+                }
+    
+    
+                return true;
+            }
+        </script>
+        <title>FORM</title>
+
+    </head>
+    <body>
+        <form action="action.html" name="form" onsubmit="return validate()">
+        <h1>COURSE REGISTRATION</h1>
+        <form>
+            <div>
+            <label>Name:</label><input type="text" name="name" placeholder="Enter your name"><br><br>
+            </div>
+            <div>
+                <label>Mail:</label><input type="mail" name="mail" placeholder="Enter your mail address"><br><br>
+            </div>
+            <div>
+                <label>Password:</label><input type="password" name="pass" placeholder="Enter password"><br><br>
+            </div>
+            <div>
+                <label>Confirm Password:</label><input type="password" name="cpass" placeholder="Confirm password"><br><br>
+            </div>
+            <div>
+                <label>DOB:</label><input type="date"><br><br>
+            </div>
+           
+           <div>
+            <label>Mobile number:</label><input type="number" name="mno" placeholder="Enter Valid mobile number"><br><br>
+           </div>
+           <div>
+            <label>Nationality:</label><input type="'text"><br><br>
+           </div>
+           <div>
+            <label>Gender:</label>
+            <input type="radio" name="gen" value="Male">Male
+            <input type="radio" name="gen" value="Female">Female
+            <input type="radio" name="gen" value="Others">Others<br><br>
+           </div>
+           <div>
+            <p><label for="address">Address</label></p>
+            <textarea id="address" name="Enter Address" rows="5" cols="50"></textarea>
+           </div>
+           <div>
+            <label>Institution Name:</label><input type="text" placeholder="Enter institution name"><br><br>
+           </div>
+           <div>
+           <label>Year of study:</label>
+           <select>
+            <option name="dept" value="select">select</option>
+               <option name="year" value="1">1</option>
+               <option name="year" value="2">2</option>
+               <option name="year" value="3">3</option>
+               <option name="year" value="4">4</option>
+           </select><br><br></div>
+            <div>
+                <label>Department:</label>
+                <select>
+                    <option name="dept" value="select">select</option>
+                    <option name="dept" value="Artificial Intelligence">Artificial Intelligence</option>
+                    <option name="dept" value="IT">IT</option>
+                    <option name="dept" valu]\e="CSE">CSE</option>
+                    <option name="dept" value="EEE">EEE</option>
+                    <option name="dept" value="ECE">ECE</option>
+                    <option name="dept" value="MECH">MECH</option>
+                    <option name="dept" value="CIVIL">CIVIL</option>
+                </select><br><br>
+            </div>
+            <div>
+                <label>Courses:</label><br><br>
+                <input type="checkbox" name="cr" value="Modern C++">Modern C++<br><br>
+                <input type="checkbox" name="cr" value="Design Thinking">Design Thinking<br><br>
+                <input type="checkbox" name="cr" value="Cyber Security">Cyber Security<br><br>
+                <input type="checkbox" name="cr" value="Emotional Intelligence">Emotional Intelligence<br><br>
+                <input type="checkbox" name="cr" value="Block Chain">Block Chain<br><br>
+                <input type="checkbox" name="cr" value="Ethical Hacking">Ethical Hacking<br><br>
+            </div>    
+            <div>
+                <input type="submit" id="sub" name="sub">
+            </div> <br>
+        </form>
+    </body>
+</html>
